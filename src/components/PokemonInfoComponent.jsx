@@ -4,7 +4,7 @@ import { getPokemonById } from "@/api/pokemonFetch";
 import {
   getTypeColorClass,
   getHoverTypeColorClass,
-} from "@/utils/colorTypeClass";
+} from "@/components/PokemonCardComponent";
 
 const PokemonInfo = ({ pokemonId }) => {
   const pokemon = getPokemonById(pokemonId);

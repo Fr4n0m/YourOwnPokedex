@@ -3,12 +3,23 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 
 export default function ContactPageButton() {
+  const handleHover = (e) => {
+    e.target.classList.remove("animate__backInDown");
+    e.target.classList.add("animate__pulse", "animate__infinite");
+  };
+
+  const handleMouseLeave = (e) => {
+    e.target.classList.remove("animate__pulse");
+  };
+
   return (
     <div>
-      <Link href={{ pathname: "/contact/contact" }}>
+      <Link href={{ pathname: "/contact/contactPage" }}>
         <Button
+          onMouseEnter={handleHover}
+          onMouseLeave={handleMouseLeave}
           variant="outlined"
-          className="text-[yellow] font-bold border-[yellow] border-[2px] hover:bg-[#9a0000] hover:border-[yellow] hover:border-[2px]"
+          className="animate__animated animate__backInDown text-[yellow] font-bold bg-[#9d9d01b1] border-[yellow] border-[3px] hover:bg-[#9d9d01e8] hover:border-[yellow] hover:border-[3px]"
         >
           Contact me
         </Button>

@@ -31,10 +31,11 @@ export default function createPokemon() {
   };
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Create Pokemon - Pokedex</title>
         <meta content="Create your own Pokemon and add it to the Pokedex" />
+        <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
       </Helmet>
 
       <HeaderComponent />
@@ -42,6 +43,6 @@ export default function createPokemon() {
       <CreatePokemonForm onPokemonAdded={handleRefresh} />
 
       <PokemonList pokemonList={pokemonList} />
-    </div>
+    </>
   );
 }
