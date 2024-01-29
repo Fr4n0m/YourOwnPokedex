@@ -1,19 +1,23 @@
 "use client";
 
-import { getPokemonById } from "@/api/pokemonFetch";
+import {
+  addToFavoritesPokemons,
+  getFavoritesPokemons,
+  getPokemonById,
+  removeFavoritePokemon,
+} from "@/api/pokemonFetch";
 import { Button, IconButton } from "@mui/material";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Link from "next/link";
 import "animate.css/animate.min.css";
-import PokemonTypeIcon from "./PokemonTypeIcon";
 
 //Función que devuelve estilos depende del tipo de pokemon
 export const getTypeColorClass = (type) => {
   switch (type) {
     case "grass":
-      return "bg-[#3fab85] border-green-900 text-green-900";
+      return "bg-[#3fab85] border-[#1c4a3a] text-[#1c4a3a]";
     case "fire":
       return "bg-[#e57e43] border-orange-800 text-orange-800";
     case "water":
@@ -62,28 +66,28 @@ export const getHoverTypeColorClass = (type) => {
 };
 
 //Determina el icono que se va a colocar al lado del nombre
-const getTypeIcon = (type) => {
+export const getTypeIcon = (type) => {
   switch (type) {
     case "grass":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_grass.svg";
     case "fire":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_fire.svg";
     case "water":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_water.svg";
     case "bug":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_bug.svg";
     case "poison":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_poison.svg";
     case "flying":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_flying.svg";
     case "electric":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_electric.svg";
     case "ground":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_ground.svg";
     case "fairy":
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_fairy.svg";
     default:
-      return <PokemonTypeIcon pokemonType={type} />;
+      return "/assets/icons/pokemon_type_icons/type_icon_normal.svg";
   }
 };
 
@@ -94,13 +98,6 @@ const PokemonCard = ({ pokemonId, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
-    }
-  }, []);
 
   //Define el State actual a true cuando se hace hover
   const handleMouseEnter = () => {
@@ -117,23 +114,20 @@ const PokemonCard = ({ pokemonId, index }) => {
     let updatedFavorites;
     if (!favorites.some((favPokemon) => favPokemon.id === pokemon.id)) {
       updatedFavorites = [...favorites, pokemon];
+      addToFavoritesPokemons(pokemonId);
       setIsClicked(true);
       console.log("add to fav: " + pokemon.name);
     } else {
       updatedFavorites = favorites.filter(
         (favPokemon) => favPokemon.id !== pokemon.id
       );
+      removeFavoritePokemon(pokemonId);
       setIsClicked(false);
       console.log("remove from fav: " + pokemon.name);
     }
 
-    console.log(updatedFavorites);
+    console.log(getFavoritesPokemons());
     setFavorites(updatedFavorites);
-    saveFavoritesToLocalStorage(updatedFavorites);
-  };
-
-  const saveFavoritesToLocalStorage = (updatedFavorites) => {
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   //Definicion de colorClass para cambiar el color de la card depende del tipo de pokemon, hace uso de la función definida arriba
@@ -161,26 +155,32 @@ const PokemonCard = ({ pokemonId, index }) => {
 
       <div className="transition-all duration-300 pokemon-details flex flex-col justify-between">
         <div>
-          <div>
-            {getTypeIcon(pokemon.type[0])}
-            <h3 className="grid text-center font-bold uppercase mb-4">
+          <div className="flex items-center gap-3">
+            <Image
+              src={getTypeIcon(pokemon.type[0])}
+              alt={pokemon.type}
+              width={24}
+              height={24}
+              className="drop-shadow-md shadow-[black]"
+            ></Image>
+            <h3 className="grid text-center font-bold uppercase">
               {pokemon.name}
             </h3>
           </div>
           {!isHovered && (
-            <div className="transition-all duration-200 delay-0">
+            <div className="m-2 transition-all duration-200 delay-0">
               <span className="font-bold">Type: </span>
               {pokemon.type.join(", ")}
             </div>
           )}
           {!isHovered && (
-            <div className="transition-all duration-200 delay-75">
+            <div className="m-2 transition-all duration-200 delay-75">
               <span className="font-bold">Height: </span>
               {pokemon.height} m
             </div>
           )}
           {!isHovered && (
-            <div className="transition-all duration-200 delay-100">
+            <div className="m-2 transition-all duration-200 delay-100">
               <span className="font-bold">Weight: </span>
               {pokemon.weight} kg
             </div>
@@ -188,13 +188,13 @@ const PokemonCard = ({ pokemonId, index }) => {
         </div>
 
         {isHovered && (
-          <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[30px]">
+          <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[60px]">
             <div>
               <IconButton
                 color={isClicked ? "error" : `${hoverColorClass}`}
                 onClick={addToFavorites}
-                variant="outlined"
                 className="h-[40px]"
+                variant="outlined"
               >
                 <FavoriteBorder />
               </IconButton>
@@ -202,6 +202,7 @@ const PokemonCard = ({ pokemonId, index }) => {
             <div>
               <Link href={`/pokemon/${pokemon.id}`}>
                 <Button
+                  variant="normal"
                   size="small"
                   className={`text-sm h-[40px] font-bold p-2 ${hoverColorClass}`}
                 >

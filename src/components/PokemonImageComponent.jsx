@@ -7,15 +7,13 @@ function PokemonImageComponent({ pokemonId }) {
 
   return (
     <div>
-      <div className="w-[300px]">
-        <Image
-          src={pokemon.url}
-          alt={pokemon.name}
-          width={24}
-          height={24}
-          layout="responsive"
-        />
-      </div>
+      <Image
+        src={pokemon.url}
+        alt={pokemon.name}
+        width={24}
+        height={24}
+        layout="responsive"
+      />
     </div>
   );
 }

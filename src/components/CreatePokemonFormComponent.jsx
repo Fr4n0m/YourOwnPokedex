@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import { addPokemon, getPokemons } from "@/api/pokemonFetch";
+import { addPokemon, getPokemons, getPokemonsTypes } from "@/api/pokemonFetch";
 
 const PokemonForm = ({ onPokemonAdded }) => {
   const [formData, setFormData] = useState({
@@ -12,18 +12,7 @@ const PokemonForm = ({ onPokemonAdded }) => {
     type: [],
   });
 
-  const typeOptions = [
-    "grass",
-    "fire",
-    "water",
-    "electric",
-    "poison",
-    "flying",
-    "bug",
-    "normal",
-    "ground",
-    "fairy",
-  ];
+  const typeOptions = getPokemonsTypes;
 
   const handleChange = (e) => {
     const { name, value } = e.target;

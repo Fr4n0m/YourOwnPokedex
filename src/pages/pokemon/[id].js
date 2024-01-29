@@ -2,13 +2,12 @@ import { useRouter } from "next/router";
 import BackButton from "@/components/BackButtonComponent";
 import { getPokemonById, getPokemons } from "../../api/pokemonFetch";
 import { useEffect, useState } from "react";
-import Header2 from "@/components/Header2Component";
 import PokemonInfo from "@/components/PokemonInfoComponent";
 import React from "react";
 import PokemonList from "@/components/PokemonListComponent";
-import EditForm from "@/components/EditFormComponent";
 import { Button } from "@mui/material";
 import { Helmet } from "react-helmet";
+import HeaderComponent from "@/components/HeaderComponent";
 
 const extractPokemonIdFromPath = (path) => {
   const pathSegments = path.split("/");
@@ -21,11 +20,6 @@ export default function PokemonDetails() {
   const { asPath } = router;
   const [pokemon, setPokemon] = useState(null);
   const [pokemonList, setPokemonList] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
-
-  const handleEditComplete = () => {
-    setIsEditing(false);
-  };
 
   // Obtener el ID del Pokémon desde la ruta
   const pokemonId = parseInt(extractPokemonIdFromPath(asPath));
@@ -62,12 +56,9 @@ export default function PokemonDetails() {
         <title>Pokemon Wiki - Pokedex</title>
         <meta content="Show your pokemons" />
       </Helmet>
-      <Header2 />
+      <HeaderComponent />
       <BackButton />
       <PokemonInfo pokemonId={pokemonId} />
-      <Button>
-        <span>Edit</span>
-      </Button>
       <PokemonList pokemonList={pokemonList} />
     </>
   );

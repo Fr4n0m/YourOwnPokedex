@@ -9,7 +9,7 @@ export default function HeaderComponent() {
     <div className="animate__animated animate__fadeInUp relative flex items-center justify-center overflow-hidden bg-[#fd0000] shadow-xl shadow-[#cb0605]">
       <div className={`m-4 ${styles.shadowContainer} rounded-xl`}>
         <Image
-          className={`cursor-pointer h-auto w-full max-h-[80vh] rounded-xl ${styles.whiteShadow}`}
+          className={`h-auto w-full max-h-[80vh] rounded-xl ${styles.whiteShadow}`}
           src="/assets/images/all-pokemon.jpg"
           alt="All Pokemon"
           width={600}
