@@ -1,5 +1,48 @@
 # Pokedex
 
+This is a project for a Pokedex website that allows users to view a list of Pokémon and create their own custom Pokémon.
+
+## Features
+
+- Displays a list of Pokémon obtained from an API.
+- Allows users to create their own custom Pokémon.
+- Implements a header component (`HeaderComponent`) to show the title and description of the page.
+- Implements a Pokémon list component (`PokemonList`) to display the list of Pokémon.
+- Implements a button group component (`ButtonGroupComponent`) to provide filtering and sorting options for the list of Pokémon.
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces.
+- Next.js: React framework for web applications.
+- Tailwind CSS: Utility-first CSS framework for designing user interfaces.
+
+## How to Use
+
+1. Clone the repository to your local machine.
+
+git clone https://github.com/your-username/pokedex.git
+
+##Install dependences.
+
+npm install
+
+##Run the develop server.
+
+npm run dev
+
+##Open your favorite browser and go to http://localhost:3000 to see the app in action.
+
+## License
+
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+# Pokedex
+
 Este es un proyecto de una página web de Pokedex que permite a los usuarios ver una lista de Pokémones y crear sus propios Pokémones personalizados.
 
 ## Características
@@ -14,7 +57,6 @@ Este es un proyecto de una página web de Pokedex que permite a los usuarios ver
 
 - React: biblioteca de JavaScript para construir interfaces de usuario.
 - Next.js: framework de React para aplicaciones web.
-- TypeScript: superset de JavaScript que añade tipos a JavaScript.
 - Tailwind CSS: framework de CSS utilitario para diseñar interfaces de usuario.
 
 ## Cómo usar
