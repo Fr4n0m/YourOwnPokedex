@@ -111,14 +111,14 @@ const PokemonInfo = ({ pokemonId }) => {
               <ul className="text-xl">
                 <li className="ml-2 animate__animated animate__lightSpeedInRight animate__delay-1s">
                   <span className="font-bold ">Height: </span>
-                  {pokemon.height} m
+                  {pokemon.height} ft
                 </li>
                 <hr
                   className={`animate__animated animate__lightSpeedInRight animate__delay-1s border-${colorClass} mt-4 mb-4 mr-[50px]`}
                 />
                 <li className="ml-2 animate__animated animate__lightSpeedInRight animate__delay-2s">
                   <span className="font-bold">Weight: </span>
-                  {pokemon.weight} kg
+                  {pokemon.weight} lbs
                 </li>
                 <hr
                   className={`animate__animated animate__lightSpeedInRight animate__delay-2s border-${colorClass} mt-4 mb-4 mr-[50px]`}

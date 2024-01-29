@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokedex
 
-## Getting Started
+This is a project for a Pokedex website that allows users to view a list of Pokémon and create their own custom Pokémon.
 
-First, run the development server:
+## Features
 
-```bash
+- Displays a list of Pokémon obtained from an API.
+- Allows users to create their own custom Pokémon.
+- Implements a header component (`HeaderComponent`) to show the title and description of the page.
+- Implements a Pokémon list component (`PokemonList`) to display the list of Pokémon.
+- Implements a button group component (`ButtonGroupComponent`) to provide filtering and sorting options for the list of Pokémon.
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces.
+- Next.js: React framework for web applications.
+- Tailwind CSS: Utility-first CSS framework for designing user interfaces.
+
+## How to Use
+
+1. Clone the repository to your local machine.
+
+git clone https://github.com/your-username/pokedex.git
+
+##Install dependences.
+
+npm install
+
+##Run the develop server.
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##Open your favorite browser and go to http://localhost:3000 to see the app in action.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
-## Learn More
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-To learn more about Next.js, take a look at the following resources:
+# Pokedex
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Este es un proyecto de una página web de Pokedex que permite a los usuarios ver una lista de Pokémones y crear sus propios Pokémones personalizados.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Características
 
-## Deploy on Vercel
+- Muestra una lista de Pokémones obtenidos desde una API.
+- Permite a los usuarios crear sus propios Pokémones personalizados.
+- Implementa un componente de encabezado (HeaderComponent) para mostrar el título y la descripción de la página.
+- Implementa un componente de lista de Pokémones (PokemonList) para mostrar la lista de Pokémones.
+- Implementa un componente de grupo de botones (ButtonGroupComponent) para proporcionar opciones de filtrado y ordenación de la lista de Pokémones.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologías utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React: biblioteca de JavaScript para construir interfaces de usuario.
+- Next.js: framework de React para aplicaciones web.
+- Tailwind CSS: framework de CSS utilitario para diseñar interfaces de usuario.
+
+## Cómo usar
+
+Clona el repositorio en tu máquina local.
+
+git clone https://github.com/tu-usuario/pokedex.git
+
+##Instala las dependencias.
+
+npm install
+
+##Inicia el servidor de desarrollo.
+
+npm run dev
+
+##Abre tu navegador y ve a http://localhost:3000 para ver la aplicación en acción.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

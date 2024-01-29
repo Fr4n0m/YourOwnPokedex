@@ -8,7 +8,7 @@ const BackButton = ({ arrowSize = 40 }) => {
     fontSize: `${arrowSize}px`,
   };
   return (
-    <div>
+    <div className="animate__animated animate__fadeInLeft">
       <Link href="/">
         <Button
           variant="normal"

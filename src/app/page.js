@@ -3,19 +3,22 @@
 import React from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import PokemonList from "../components/PokemonListComponent";
-import { getPokemons } from "@/api/pokemonFetch";
+import { getFavoritesPokemons, getPokemons } from "@/api/pokemonFetch";
 import { useEffect, useState } from "react";
 import ButtonGroupComponent from "@/components/ButtonGroupComponent";
 import { Helmet } from "react-helmet";
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getPokemons();
+        const dataFav = getFavoritesPokemons();
         setPokemonList(data);
+        setFavorites(dataFav);
       } catch (error) {
         console.error("Error fetching Pokemon data:", error);
       }
@@ -32,9 +35,7 @@ export default function Home() {
         <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
       </Helmet>
       <HeaderComponent />
-
       <ButtonGroupComponent />
-
       <PokemonList pokemonList={pokemonList} />
     </>
   );

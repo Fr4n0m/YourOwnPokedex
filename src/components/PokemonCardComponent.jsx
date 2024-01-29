@@ -131,8 +131,9 @@ const PokemonCard = ({ pokemonId, index }) => {
   };
 
   //Definicion de colorClass para cambiar el color de la card depende del tipo de pokemon, hace uso de la función definida arriba
-  const colorClass = getTypeColorClass(pokemon.type[0]);
-  const hoverColorClass = getHoverTypeColorClass(pokemon.type[0]);
+  const pokemonType = pokemon.type[0];
+  const colorClass = getTypeColorClass(pokemonType);
+  const hoverColorClass = getHoverTypeColorClass(pokemonType);
 
   return (
     <div
@@ -176,13 +177,13 @@ const PokemonCard = ({ pokemonId, index }) => {
           {!isHovered && (
             <div className="m-2 transition-all duration-200 delay-75">
               <span className="font-bold">Height: </span>
-              {pokemon.height} m
+              {pokemon.height} ft
             </div>
           )}
           {!isHovered && (
             <div className="m-2 transition-all duration-200 delay-100">
               <span className="font-bold">Weight: </span>
-              {pokemon.weight} kg
+              {pokemon.weight} lbs
             </div>
           )}
         </div>

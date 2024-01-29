@@ -1,23 +1,18 @@
-import { getFavoritesPokemons, getPokemons } from "@/api/pokemonFetch";
+import { getFavoritesPokemons } from "@/api/pokemonFetch";
 import HeaderComponent from "@/components/HeaderComponent";
 import PokemonList from "@/components/PokemonListComponent";
 import React from "react";
-import { Helmet } from "react-helmet";
 
-export default function favorites() {
-  const pokemonFavoritesList = getFavoritesPokemons();
-  console.log(pokemonFavoritesList);
+export default function favoritesPage() {
+  const favoritesList = getFavoritesPokemons();
+
+  //?Debería de salir la lista de pokemonsFavoritos pero no encuentro la manera de que esa lista no se pierda o se me pase como undefined, he intentado mil formas y nada, no sé si con localStorage se podría guardar entre paginas el array. Lo he probado y tampoco lo he conseguido.
 
   return (
     <>
-      <Helmet>
-        <title>Favorites Pokemons - Pokedex</title>
-        <meta content="Your favorites Pokemons" />
-        <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
-      </Helmet>
       <HeaderComponent />
 
-      <PokemonList pokemonList={pokemonFavoritesList} />
+      <PokemonList pokemonList={favoritesList} />
     </>
   );
 }

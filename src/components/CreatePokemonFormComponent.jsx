@@ -6,7 +6,6 @@ const PokemonForm = ({ onPokemonAdded }) => {
   const [formData, setFormData] = useState({
     id: "",
     name: "",
-    url: "",
     height: "",
     weight: "",
     type: [],
@@ -44,6 +43,23 @@ const PokemonForm = ({ onPokemonAdded }) => {
   };
 
   const handleSubmit = async () => {
+    /* if (
+      formData.id === null ||
+      formData.id === "" ||
+      formData.nombre === null ||
+      formData.nombre === "" ||
+      formData.height === null ||
+      formData.height === "" ||
+      formData.weight === null ||
+      formData.weight === "" ||
+      formData.type === null ||
+      formData.type === ""
+    ) {
+      console.error("No puede haber campos vacíos.");
+      alert("No puede haber campos vacíos.");
+      return;
+    } */
+
     if (!isNumeric(formData.id)) {
       console.error("ID debe ser un número.");
       alert("ID debe ser un número.");
@@ -78,7 +94,7 @@ const PokemonForm = ({ onPokemonAdded }) => {
 
     const pokemon = {
       id: formData.id,
-      name: formData.name,
+      nombre: formData.name,
       url: formData.url,
       height: formData.height,
       weight: formData.weight,
@@ -94,18 +110,18 @@ const PokemonForm = ({ onPokemonAdded }) => {
       pokemon.type
     );
 
-    if (onPokemonAdded) {
+    //?Para que se actualice la pagina cuando se agregue un nuevo pokemon, está comentado porque da error, al llevarme el pokemon los valores son undefined y peta. Pero el consolelog si que se muestra el pokemon creado.
+    /* if (onPokemonAdded) {
       onPokemonAdded();
-    }
+    } */
 
     console.log("Nuevo Pokémon:", pokemon);
-
     const updatedPokemons = await getPokemons();
     console.log("Lista actualizada de Pokémon:", updatedPokemons);
   };
 
   return (
-    <div className="container mx-auto p-4 bg-gray-100 max-w-md rounded-md">
+    <div className="animate__animated animate__fadeInUp container mx-auto p-4 bg-gray-100 max-w-md rounded-md">
       <h1 className="text-2xl font-bold mb-4 text-center">CREATE POKEMON</h1>
       <form>
         {/*Cambiar id*/}
