@@ -11,7 +11,7 @@ function ButtonGroupComponent() {
       <Link href={"/createPokemon/createPokemonPage"}>
         <Button
           variant="contained"
-          className="bg-[#fd0000] hover:bg-[#9a0000] w-40 animate__animated animate__fadeInLeft animate__delay-1s"
+          className="bg-[#fd0000] hover:bg-[#9a0000] w-40 h-16 animate__animated animate__fadeInLeft animate__delay-1s"
         >
           {textCreatePokeButton}
         </Button>
@@ -20,7 +20,7 @@ function ButtonGroupComponent() {
       <Link href={"/favoritesPokemon/favoritesPage"}>
         <Button
           variant="contained"
-          className="bg-[#fd0000] hover:bg-[#9a0000] w-40 animate__animated animate__fadeInRight animate__delay-1s"
+          className="bg-[#fd0000] hover:bg-[#9a0000] w-40 h-16 animate__animated animate__fadeInRight animate__delay-1s"
         >
           {textFavoritesButton}
         </Button>

@@ -27,6 +27,21 @@ export const getPokemonById = (idParam) => {
   return pokemonAux;
 };
 
+export default function getPokemonTypes() {
+  return (types = [
+    "normal",
+    "fire",
+    "water",
+    "electric",
+    "grass",
+    "poison",
+    "ground",
+    "flying",
+    "bug",
+    "fairy",
+  ]);
+}
+
 export const modifyName = (idPokemon, newName) => {
   pokemons.map((pokemon) => {
     if (pokemon.id == idPokemon) {

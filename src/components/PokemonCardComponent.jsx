@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Link from "next/link";
 import "animate.css/animate.min.css";
+import PokemonTypeIcon from "./PokemonTypeIcon";
 
 //Función que devuelve estilos depende del tipo de pokemon
 export const getTypeColorClass = (type) => {
@@ -60,31 +61,31 @@ export const getHoverTypeColorClass = (type) => {
   }
 };
 
-/* //Determina el icono que se va a colocar al lado del nombre
+//Determina el icono que se va a colocar al lado del nombre
 const getTypeIcon = (type) => {
   switch (type) {
     case "grass":
-      return <GrassIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "fire":
-      return <FireIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "water":
-      return <WaterIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "bug":
-      return <BugIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "poison":
-      return <PoisonIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "flying":
-      return <FlyingIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "electric":
-      return <ElectricIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "ground":
-      return <GroundIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     case "fairy":
-      return <FairyIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
     default:
-      return <GrassIcon />;
+      return <PokemonTypeIcon pokemonType={type} />;
   }
-}; */
+};
 
 const PokemonCard = ({ pokemonId, index }) => {
   const pokemon = getPokemonById(pokemonId);
@@ -160,9 +161,12 @@ const PokemonCard = ({ pokemonId, index }) => {
 
       <div className="transition-all duration-300 pokemon-details flex flex-col justify-between">
         <div>
-          <h3 className="grid text-center font-bold uppercase mb-4">
-            {getTypeIcon(pokemon.type[0])} {pokemon.name}
-          </h3>
+          <div>
+            {getTypeIcon(pokemon.type[0])}
+            <h3 className="grid text-center font-bold uppercase mb-4">
+              {pokemon.name}
+            </h3>
+          </div>
           {!isHovered && (
             <div className="transition-all duration-200 delay-0">
               <span className="font-bold">Type: </span>
