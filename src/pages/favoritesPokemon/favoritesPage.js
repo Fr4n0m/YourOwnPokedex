@@ -1,7 +1,9 @@
 import { getFavoritesPokemons } from "@/api/pokemonFetch";
+import BackButton from "@/components/BackButtonComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 import PokemonList from "@/components/PokemonListComponent";
 import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function favoritesPage() {
   const favoritesList = getFavoritesPokemons();
@@ -10,7 +12,14 @@ export default function favoritesPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Favorites Pokemon - Pokedex</title>
+        <meta content="Create your own Pokemon and add it to the Pokedex" />
+        <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
+      </Helmet>
+
       <HeaderComponent />
+      <BackButton />
 
       <PokemonList pokemonList={favoritesList} />
     </>

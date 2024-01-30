@@ -56,9 +56,12 @@ export default function PokemonDetails() {
         <title>Pokemon Wiki - Pokedex</title>
         <meta content="Show your pokemons" />
       </Helmet>
+
       <HeaderComponent />
       <BackButton />
+
       <PokemonInfo pokemonId={pokemonId} />
+
       <PokemonList pokemonList={pokemonList} />
     </>
   );
