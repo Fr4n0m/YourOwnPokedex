@@ -35,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
       </Helmet>
       <HeaderComponent />
-      <ButtonGroupComponent />
+      <ButtonGroupComponent className="button-group-component" />
       <PokemonList pokemonList={pokemonList} />
     </>
   );

@@ -3,10 +3,11 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import ContactPageButtonComponent from "@/components/ContactPageButtonComponent";
 import LogoImageComponent from "@/components/LogoImageComponent";
+import DarkModeButton from "./darkModeButton/DarkModeButtonComponent";
 
 export default function HeaderComponent() {
   return (
-    <div className="animate__animated animate__fadeInUp relative flex items-center justify-center overflow-hidden bg-[#fd0000] shadow-xl shadow-[#cb0605]">
+    <header className="animate__animated animate__fadeInUp relative flex items-center justify-center overflow-hidden bg-[#fd0000] shadow-xl shadow-[#cb0605]">
       <div className={`m-4 ${styles.shadowContainer} rounded-xl`}>
         <Image
           className={`h-auto w-full max-h-[80vh] rounded-xl ${styles.whiteShadow}`}
@@ -29,9 +30,10 @@ export default function HeaderComponent() {
       </div>
 
       <div className="transition-all absolute top-8 right-8 m-4 flex gap-10 items-center">
+        <DarkModeButton />
         <ContactPageButtonComponent />
         <LogoImageComponent />
       </div>
-    </div>
+    </header>
   );
 }
