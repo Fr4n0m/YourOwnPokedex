@@ -9,7 +9,10 @@ function DarkModeButton() {
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
+      document.body.classList.add("dark");
       setDarkMode(true);
+    } else {
+      document.body.classList.remove("dark");
     }
   }, []);
 
