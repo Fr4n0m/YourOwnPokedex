@@ -20,7 +20,7 @@ This is a project for a Pokedex website that allows users to view a list of Pok�
 
 1. Clone the repository to your local machine.
 
-git clone https://github.com/your-username/pokedex.git
+git clone https://github.com/Fr4n0m/pokedex.git
 
 ##Install dependences.
 
@@ -60,7 +60,7 @@ Este es un proyecto de una página web de Pokedex que permite a los usuarios ver
 
 Clona el repositorio en tu máquina local.
 
-git clone https://github.com/tu-usuario/pokedex.git
+git clone https://github.com/Fr4n0m/pokedex.git
 
 ##Instala las dependencias.
 
