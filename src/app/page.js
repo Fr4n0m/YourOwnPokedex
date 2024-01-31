@@ -22,9 +22,19 @@ export default function Home() {
         console.error("Error fetching Pokemon data:", error);
       }
     };
-
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   return (
     <>

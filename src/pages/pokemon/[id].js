@@ -36,6 +36,11 @@ export default function PokemonDetails() {
   }, [pokemonId]);
 
   useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+
     const fetchData = async () => {
       try {
         const data = await getPokemons();
@@ -48,8 +53,18 @@ export default function PokemonDetails() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
   if (!pokemon) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-[yellow] text-[100px] font-bold uppercase text-shadow shadow-[black]">
+          Loading...
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -57,6 +72,7 @@ export default function PokemonDetails() {
       <Helmet>
         <title>Pokemon Wiki - Pokedex</title>
         <meta content="Show your pokemons" />
+        <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
       </Helmet>
 
       <HeaderComponent />

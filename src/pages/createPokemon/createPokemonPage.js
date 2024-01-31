@@ -15,6 +15,13 @@ export default function createPokemon() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      const parsedFavorites = JSON.parse(storedFavorites);
+      setFavorites(parsedFavorites);
+      console.log("Favorites loaded from localStorage:", parsedFavorites);
+    }
+
     const fetchData = async () => {
       try {
         const data = await getPokemons();
@@ -26,6 +33,10 @@ export default function createPokemon() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   return (
     <>

@@ -48,10 +48,10 @@ const PokemonInfo = ({ pokemonId }) => {
     <>
       <div className="animate__animated animate__fadeInUp grid justify-center items-center">
         <div
-          className={`rounded-xl ${colorClass} grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 border-[30px] max-w-[100%] p-2`}
+          className={`shadow-2xl rounded-xl ${colorClass} grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 border-[30px] max-w-[100%] p-2`}
         >
           <div className="m-3 grid justify-center gap-4">
-            <div className="animate__animated animate__bounceInDown w-[150px] h-[80px] sm:w-[200px] sm:h-[auto] md:w-[300px] md:h-[auto]">
+            <div className="animate__animated animate__bounceInDown drop-shadow-lg w-[150px] h-[80px] sm:w-[200px] sm:h-[auto] md:w-[300px] md:h-[auto]">
               <PokemonImage pokemonId={pokemonId} />
             </div>
 

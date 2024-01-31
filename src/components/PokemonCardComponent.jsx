@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  addToFavoritesPokemons,
-  getFavoritesPokemons,
-  getPokemonById,
-  removeFavoritePokemon,
-} from "@/api/pokemonFetch";
+import { getPokemonById } from "@/api/pokemonFetch";
 import { Button, IconButton } from "@mui/material";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -126,7 +121,7 @@ const PokemonCard = ({ pokemonId, index, setFav, isFavorite }) => {
 
   return (
     <div
-      className={`animate__animated animate__fadeInUp relative h-[350px] w-[220px] p-8 rounded-3xl border-[5px] transition-all duration-300 ease-in-out transform hover:border-[10px] ${
+      className={`animate__animated animate__fadeInUp shadow-lg hover:shadow-inner shadow-[#00000087] relative h-[376px] w-[225px] p-8 rounded-3xl border-[7px] transition-all duration-300 ease-in-out transform hover:border-[10px] ${
         isHovered ? hoverColorClass : colorClass
       }`}
       style={{ animationDelay: `${index * 0.2}s` }}
@@ -140,12 +135,15 @@ const PokemonCard = ({ pokemonId, index, setFav, isFavorite }) => {
           width={50}
           height={50}
           layout="responsive"
+          className={`animate__animated drop-shadow-lg ${
+            isHovered ? "animate__pulse animate__infinite" : ""
+          }`}
         />
       </Link>
 
-      <div className="transition-all duration-300 pokemon-details flex flex-col justify-between">
+      <div className="transition-all duration-300 pokemon-details flex flex-col justify-center items-center">
         <div>
-          <div className="flex items-center gap-3">
+          <div className="flex justify-center items-center gap-3">
             <Image
               src={getTypeIcon(pokemon.type[0])}
               alt={pokemon.type}
@@ -178,7 +176,7 @@ const PokemonCard = ({ pokemonId, index, setFav, isFavorite }) => {
         </div>
 
         {isHovered && (
-          <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[60px]">
+          <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[90px]">
             <div>
               <IconButton
                 color={isFavorite ? "error" : hoverColorClass}
