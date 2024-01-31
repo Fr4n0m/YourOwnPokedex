@@ -5,8 +5,11 @@ import React from "react";
 
 function PortfolioHeader() {
   return (
-    <div>
-      <header id="header" class="header">
+    <div className="bg-[#281844]">
+      <header
+        id="header"
+        class="header absolute w-full flex bg-[--color-transparent]"
+      >
         <img src="/assets/images/logo.webp" alt="Fran" />
 
         <ul>

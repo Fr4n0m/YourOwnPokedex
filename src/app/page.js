@@ -14,6 +14,10 @@ export default function Home() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
     const fetchData = async () => {
       try {
         const data = await getPokemons();
@@ -23,13 +27,6 @@ export default function Home() {
       }
     };
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
-    }
   }, []);
 
   useEffect(() => {
