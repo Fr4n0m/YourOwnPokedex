@@ -16,9 +16,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await getPokemons();
-        const dataFav = getFavoritesPokemons();
         setPokemonList(data);
-        setFavorites(dataFav);
       } catch (error) {
         console.error("Error fetching Pokemon data:", error);
       }
@@ -36,7 +34,11 @@ export default function Home() {
       </Helmet>
       <HeaderComponent />
       <ButtonGroupComponent className="button-group-component" />
-      <PokemonList pokemonList={pokemonList} />
+      <PokemonList
+        pokemonList={pokemonList}
+        favorites={favorites}
+        setFavs={setFavorites}
+      />
     </>
   );
 }

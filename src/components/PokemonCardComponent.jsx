@@ -91,7 +91,7 @@ export const getTypeIcon = (type) => {
   }
 };
 
-const PokemonCard = ({ pokemonId, index }) => {
+const PokemonCard = ({ pokemonId, index, setFav }) => {
   const pokemon = getPokemonById(pokemonId);
 
   //useState para saber si se está haciendo hover con el ratón, para saber los favoritos
@@ -111,23 +111,8 @@ const PokemonCard = ({ pokemonId, index }) => {
 
   //Añadir o eliminar un pokemon de favoritos
   const addToFavorites = () => {
-    let updatedFavorites;
-    if (!favorites.some((favPokemon) => favPokemon.id === pokemon.id)) {
-      updatedFavorites = [...favorites, pokemon];
-      addToFavoritesPokemons(pokemonId);
-      setIsClicked(true);
-      console.log("add to fav: " + pokemon.name);
-    } else {
-      updatedFavorites = favorites.filter(
-        (favPokemon) => favPokemon.id !== pokemon.id
-      );
-      removeFavoritePokemon(pokemonId);
-      setIsClicked(false);
-      console.log("remove from fav: " + pokemon.name);
-    }
-
-    console.log(getFavoritesPokemons());
-    setFavorites(updatedFavorites);
+    setIsClicked(!isClicked);
+    setFav();
   };
 
   //Definicion de colorClass para cambiar el color de la card depende del tipo de pokemon, hace uso de la función definida arriba
