@@ -21,10 +21,10 @@ export default function HeaderComponent() {
       </div>
 
       <div className="absolute top-0 left-0 right-0 p-10">
-        <h1 className="animate__animated animate__lightSpeedInLeft drop-shadow-xl text-4xl sm:text-5xl md:text-6xl font-extrabold text-[black]">
+        <h1 className="animate__animated animate__lightSpeedInLeft text-shadow-lg shadow-[black] text-4xl sm:text-5xl md:text-6xl font-extrabold text-[black]">
           YOUR <br /> OWN <br /> POKEDEX
         </h1>
-        <h1 className="animate__animated animate__bounceInDown absolute top-9 left-9 drop-shadow-xl text-4xl sm:text-5xl md:text-6xl font-extrabold text-[yellow]">
+        <h1 className="animate__animated animate__bounceInDown absolute top-9 left-9 text-shadow shadow-[yellow] text-4xl sm:text-5xl md:text-6xl font-extrabold text-[yellow]">
           YOUR <br /> OWN <br /> POKEDEX
         </h1>
       </div>

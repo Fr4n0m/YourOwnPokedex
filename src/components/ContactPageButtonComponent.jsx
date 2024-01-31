@@ -14,7 +14,7 @@ export default function ContactPageButton() {
 
   return (
     <div>
-      <Link href={{ pathname: "/contact/contactPage" }}>
+      <Link href="/contact/contactPage">
         <Button
           onMouseEnter={handleHover}
           onMouseLeave={handleMouseLeave}

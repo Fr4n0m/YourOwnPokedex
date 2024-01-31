@@ -8,10 +8,11 @@ import PokemonList from "@/components/PokemonListComponent";
 import { getPokemons } from "@/api/pokemonFetch";
 import BackButton from "@/components/BackButtonComponent";
 import { Helmet } from "react-helmet";
+import FavoritesList from "@/components/FavoritesListComponent";
 
 export default function createPokemon() {
   const [pokemonList, setPokemonList] = useState([]);
-  const [refresh, setRefresh] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,11 +25,7 @@ export default function createPokemon() {
     };
 
     fetchData();
-  }, [refresh]);
-
-  const handleRefresh = () => {
-    setRefresh((prevRefresh) => !prevRefresh);
-  };
+  }, []);
 
   return (
     <>
@@ -41,9 +38,15 @@ export default function createPokemon() {
       <HeaderComponent />
       <BackButton />
 
-      <CreatePokemonForm onPokemonAdded={handleRefresh} />
+      <CreatePokemonForm />
 
-      <PokemonList pokemonList={pokemonList} />
+      <PokemonList
+        pokemonList={pokemonList}
+        favorites={favorites}
+        setFavs={setFavorites}
+      />
+
+      <FavoritesList favorites={favorites} setFavorites={setFavorites} />
     </>
   );
 }

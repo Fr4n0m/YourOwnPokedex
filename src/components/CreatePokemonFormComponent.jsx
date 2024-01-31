@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import { addPokemon, getPokemons, getPokemonsTypes } from "@/api/pokemonFetch";
 
-const PokemonForm = ({ onPokemonAdded }) => {
+const PokemonForm = () => {
   const [formData, setFormData] = useState({
     id: "",
     name: "",

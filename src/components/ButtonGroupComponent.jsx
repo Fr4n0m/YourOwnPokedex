@@ -17,7 +17,7 @@ function ButtonGroupComponent() {
         </Button>
       </Link>
 
-      <Link href={"/favoritesPokemon/favoritesPage"}>
+      <Link href="#favorites-section">
         <Button
           variant="contained"
           className="bg-[#fd0000] hover:bg-[#9a0000] w-40 h-16 animate__animated animate__fadeInRight animate__delay-1s"

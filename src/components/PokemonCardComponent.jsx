@@ -91,13 +91,12 @@ export const getTypeIcon = (type) => {
   }
 };
 
-const PokemonCard = ({ pokemonId, index, setFav }) => {
+const PokemonCard = ({ pokemonId, index, setFav, isFavorite }) => {
   const pokemon = getPokemonById(pokemonId);
 
   //useState para saber si se está haciendo hover con el ratón, para saber los favoritos
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-  const [favorites, setFavorites] = useState([]);
 
   //Define el State actual a true cuando se hace hover
   const handleMouseEnter = () => {
@@ -111,7 +110,12 @@ const PokemonCard = ({ pokemonId, index, setFav }) => {
 
   //Añadir o eliminar un pokemon de favoritos
   const addToFavorites = () => {
-    setIsClicked(!isClicked);
+    if (isFavorite) {
+      setIsClicked(true);
+    } else {
+      setIsClicked(false);
+    }
+
     setFav();
   };
 
@@ -177,7 +181,7 @@ const PokemonCard = ({ pokemonId, index, setFav }) => {
           <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[60px]">
             <div>
               <IconButton
-                color={isClicked ? "error" : `${hoverColorClass}`}
+                color={isFavorite ? "error" : hoverColorClass}
                 onClick={addToFavorites}
                 className="h-[40px]"
                 variant="outlined"

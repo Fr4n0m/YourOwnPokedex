@@ -8,6 +8,7 @@ import PokemonList from "@/components/PokemonListComponent";
 import { Button } from "@mui/material";
 import { Helmet } from "react-helmet";
 import HeaderComponent from "@/components/HeaderComponent";
+import FavoritesList from "@/components/FavoritesListComponent";
 
 const extractPokemonIdFromPath = (path) => {
   const pathSegments = path.split("/");
@@ -20,6 +21,7 @@ export default function PokemonDetails() {
   const { asPath } = router;
   const [pokemon, setPokemon] = useState(null);
   const [pokemonList, setPokemonList] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   // Obtener el ID del Pokémon desde la ruta
   const pokemonId = parseInt(extractPokemonIdFromPath(asPath));
@@ -62,7 +64,13 @@ export default function PokemonDetails() {
 
       <PokemonInfo pokemonId={pokemonId} />
 
-      <PokemonList pokemonList={pokemonList} />
+      <PokemonList
+        pokemonList={pokemonList}
+        favorites={favorites}
+        setFavs={setFavorites}
+      />
+
+      <FavoritesList favorites={favorites} setFavorites={setFavorites} />
     </>
   );
 }

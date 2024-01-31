@@ -7,6 +7,7 @@ import { getFavoritesPokemons, getPokemons } from "@/api/pokemonFetch";
 import { useEffect, useState } from "react";
 import ButtonGroupComponent from "@/components/ButtonGroupComponent";
 import { Helmet } from "react-helmet";
+import FavoritesList from "../components/FavoritesListComponent";
 
 export default function Home() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -32,13 +33,18 @@ export default function Home() {
         <meta content="Create your own Pokemon and add it to the Pokedex" />
         <link rel="icon" href="/assets/icons/icon-pokeball-16.png"></link>
       </Helmet>
+
       <HeaderComponent />
-      <ButtonGroupComponent className="button-group-component" />
+
+      <ButtonGroupComponent />
+
       <PokemonList
         pokemonList={pokemonList}
         favorites={favorites}
         setFavs={setFavorites}
       />
+
+      <FavoritesList favorites={favorites} setFavorites={setFavorites} />
     </>
   );
 }

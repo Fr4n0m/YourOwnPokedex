@@ -28,6 +28,10 @@ const PokemonList = ({ pokemonList, favorites, setFavs }) => {
             pokemonId={pokemon.id}
             index={index}
             setFav={() => onClickListener(pokemon)}
+            favorites={favorites}
+            isFavorite={favorites.some(
+              (favPokemon) => favPokemon.id === pokemon.id
+            )}
           />
         ))}
       </div>
