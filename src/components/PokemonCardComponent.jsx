@@ -121,85 +121,87 @@ const PokemonCard = ({ pokemonId, index, setFav, isFavorite }) => {
 
   return (
     <div
-      className={`animate__animated animate__fadeInUp shadow-lg hover:shadow-inner shadow-[#00000087] relative h-[376px] w-[225px] p-8 rounded-3xl border-[7px] transition-all duration-300 ease-in-out transform hover:border-[10px] ${
+      className={`animate__animated animate__fadeInUp shadow-lg shadow-[#00000093] hover:shadow-2xl hover:shadow-[#00000087] relative h-[376px] w-[225px] rounded-3xl border-[7px] transition-all duration-300 ease-in-out transform hover:border-[10px] ${
         isHovered ? hoverColorClass : colorClass
       }`}
       style={{ animationDelay: `${index * 0.2}s` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Link href={`/pokemon/${pokemon.id}`}>
-        <Image
-          src={pokemon.url}
-          alt={pokemon.name}
-          width={50}
-          height={50}
-          layout="responsive"
-          className={`animate__animated drop-shadow-lg ${
-            isHovered ? "animate__pulse animate__infinite" : ""
-          }`}
-        />
-      </Link>
+      <div className="rounded-3xl shadow-inner p-6 transition-all">
+        <Link href={`/pokemon/${pokemon.id}`}>
+          <Image
+            src={pokemon.url}
+            alt={pokemon.name}
+            width={50}
+            height={50}
+            layout="responsive"
+            className={`animate__animated drop-shadow-lg ${
+              isHovered ? "animate__pulse animate__infinite" : ""
+            }`}
+          />
+        </Link>
 
-      <div className="transition-all duration-300 pokemon-details flex flex-col justify-center items-center">
-        <div>
-          <div className="flex justify-center items-center gap-3">
-            <Image
-              src={getTypeIcon(pokemon.type[0])}
-              alt={pokemon.type}
-              width={24}
-              height={24}
-              className="drop-shadow-md shadow-[black]"
-            ></Image>
-            <h3 className="grid text-center font-bold uppercase">
-              {pokemon.name}
-            </h3>
+        <div className="transition-all duration-300 pokemon-details flex flex-col justify-center items-center">
+          <div>
+            <div className="flex justify-center items-center gap-3">
+              <Image
+                src={getTypeIcon(pokemon.type[0])}
+                alt={pokemon.type}
+                width={24}
+                height={24}
+                className="drop-shadow-md shadow-[black]"
+              ></Image>
+              <h3 className="grid text-center font-bold uppercase">
+                {pokemon.name}
+              </h3>
+            </div>
+            {!isHovered && (
+              <div className="m-2 transition-all duration-200 delay-0">
+                <span className="font-bold">Type: </span>
+                {pokemon.type.join(", ")}
+              </div>
+            )}
+            {!isHovered && (
+              <div className="m-2 transition-all duration-200 delay-75">
+                <span className="font-bold">Height: </span>
+                {pokemon.height} ft
+              </div>
+            )}
+            {!isHovered && (
+              <div className="m-2 transition-all duration-200 delay-100">
+                <span className="font-bold">Weight: </span>
+                {pokemon.weight} lbs
+              </div>
+            )}
           </div>
-          {!isHovered && (
-            <div className="m-2 transition-all duration-200 delay-0">
-              <span className="font-bold">Type: </span>
-              {pokemon.type.join(", ")}
-            </div>
-          )}
-          {!isHovered && (
-            <div className="m-2 transition-all duration-200 delay-75">
-              <span className="font-bold">Height: </span>
-              {pokemon.height} ft
-            </div>
-          )}
-          {!isHovered && (
-            <div className="m-2 transition-all duration-200 delay-100">
-              <span className="font-bold">Weight: </span>
-              {pokemon.weight} lbs
+
+          {isHovered && (
+            <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[80px] justify-center items-center">
+              <div>
+                <IconButton
+                  color={isFavorite ? "error" : hoverColorClass}
+                  onClick={addToFavorites}
+                  className="h-[40px]"
+                  variant="outlined"
+                >
+                  <FavoriteBorder />
+                </IconButton>
+              </div>
+              <div>
+                <Link href={`/pokemon/${pokemon.id}`}>
+                  <Button
+                    variant="normal"
+                    size="small"
+                    className={`text-sm h-[50px] w-[80px] font-bold ${hoverColorClass}`}
+                  >
+                    View Details
+                  </Button>
+                </Link>
+              </div>
             </div>
           )}
         </div>
-
-        {isHovered && (
-          <div className="animate__animated animate__fadeInUp flex gap-4 mb-0 h-auto mt-[90px]">
-            <div>
-              <IconButton
-                color={isFavorite ? "error" : hoverColorClass}
-                onClick={addToFavorites}
-                className="h-[40px]"
-                variant="outlined"
-              >
-                <FavoriteBorder />
-              </IconButton>
-            </div>
-            <div>
-              <Link href={`/pokemon/${pokemon.id}`}>
-                <Button
-                  variant="normal"
-                  size="small"
-                  className={`text-sm h-[40px] font-bold p-2 ${hoverColorClass}`}
-                >
-                  View Details
-                </Button>
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

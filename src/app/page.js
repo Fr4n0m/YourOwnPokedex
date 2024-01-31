@@ -3,7 +3,7 @@
 import React from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import PokemonList from "../components/PokemonListComponent";
-import { getFavoritesPokemons, getPokemons } from "@/api/pokemonFetch";
+import { getPokemons } from "@/api/pokemonFetch";
 import { useEffect, useState } from "react";
 import ButtonGroupComponent from "@/components/ButtonGroupComponent";
 import { Helmet } from "react-helmet";
