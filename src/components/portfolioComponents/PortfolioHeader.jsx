@@ -8,12 +8,19 @@ function PortfolioHeader() {
     <div className="bg-[#281844]">
       <header
         id="header"
-        class="header absolute w-full flex bg-[--color-transparent]"
+        className="header absolute w-full flex bg-transparent items-center justify-center"
       >
-        <img src="/assets/images/logo.webp" alt="Fran" />
+        <img
+          src="/assets/images/logo.webp"
+          alt="Fran"
+          className="w-[100px] h-[100px] rounded-[50%] p-[20px]"
+        />
 
-        <ul>
-          <a class="header-nav-link" href="">
+        <ul className="flex items-center">
+          <a
+            className="header-nav-link bg-transparent border-[2px] border-solid border-[#fff] cursor-pointer inline-block tracking-wider outline-none overflow-visible p-3 relative text-center transition-all duration-[0.3s] ease-in-out select-none text-[13px]"
+            href=""
+          >
             <li>
               <span class="top-key"></span>
               <span class="text">Work</span>
