@@ -1,0 +1,11 @@
+/* Clase para el contenedor de la sombra */
+.shadowContainer {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.8);
+    /* Sombra blanca */
+}
+
+/* Clase para aplicar una sombra blanca a la imagen */
+.whiteShadow {
+    filter: drop-shadow(0px 4px 8px rgba(255, 255, 255, 0.8));
+    /* Sombra blanca */
+}

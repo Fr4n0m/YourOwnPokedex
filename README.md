@@ -20,7 +20,11 @@ This is a project for a Pokedex website that allows users to view a list of Pok�
 
 1. Clone the repository to your local machine.
 
+<<<<<<< HEAD
 git clone https://github.com/your-username/pokedex.git
+=======
+git clone https://github.com/Fr4n0m/pokedex.git
+>>>>>>> develop
 
 ##Install dependences.
 
@@ -36,11 +40,16 @@ npm run dev
 
 This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
+<<<<<<< HEAD
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
+=======
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+>>>>>>> develop
 # Pokedex
 
 Este es un proyecto de una página web de Pokedex que permite a los usuarios ver una lista de Pokémones y crear sus propios Pokémones personalizados.
@@ -63,7 +72,11 @@ Este es un proyecto de una página web de Pokedex que permite a los usuarios ver
 
 Clona el repositorio en tu máquina local.
 
+<<<<<<< HEAD
 git clone https://github.com/tu-usuario/pokedex.git
+=======
+git clone https://github.com/Fr4n0m/pokedex.git
+>>>>>>> develop
 
 ##Instala las dependencias.
 
